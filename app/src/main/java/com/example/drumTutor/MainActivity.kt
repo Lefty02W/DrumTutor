@@ -2,7 +2,6 @@ package com.example.drumTutor
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -35,7 +34,6 @@ class MainActivity : Activity() {
             putExtra(Companion.EXTRA_MESSAGE, message)
         }
         startActivity(intent)
-
     }
 
     companion object {

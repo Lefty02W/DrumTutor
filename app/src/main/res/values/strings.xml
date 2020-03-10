@@ -2,4 +2,5 @@
     <string name="app_name">Drum Tutor</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="current_bpm">40</string>
 </resources>

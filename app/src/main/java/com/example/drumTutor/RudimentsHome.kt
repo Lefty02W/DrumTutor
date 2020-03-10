@@ -21,13 +21,19 @@ class RudimentsHome : ListActivity() {
 
     private val friends = arrayOf<Friend>(
         Friend(
-            "Ben Adams",
+            "Single Paradiddle",
             "bta47",
             "Christchurch, NZ",
             "benjamin.adams@canterbury.ac.nz",
             "#######"
         ),
-        Friend("Luke Walsh", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306")
+        Friend("Double Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+        Friend("Paradiddle-diddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+        Friend("Flam", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+        Friend("Flam Accent", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+        Friend("Flam Tap", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+        Friend("Flamacue", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+        Friend("Flam Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306")
     )
 
 
