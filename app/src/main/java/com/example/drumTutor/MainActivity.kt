@@ -23,8 +23,31 @@ class MainActivity : Activity() {
             val openRudimentsHome = Intent(this, RudimentsHome::class.java)
             startActivity(openRudimentsHome)
         }
+        persistDefaultSharedPreferences()
+        readPersistedNumber()
     }
 
+    /**
+     *  Retrieves app's default shared preferences and persists a number
+     */
+    fun persistDefaultSharedPreferences(){
+        val score = Math.random()
+        var defaultSharedPreferences =  this.getSharedPreferences(Context.MODE_PRIVATE)
+        with (defaultSharedPreferences.edit()) {
+            putInt("Score", score)
+            commit()
+        }
+    }
+
+    /**
+     * reads persisted defult shared preferences number
+     */
+    fun readPersistedNumber(){
+        var defaultSharedPreferences =  this.getSharedPreferences(Context.MODE_PRIVATE)
+        val score = defaultSharedPreferences.getInt("Score")
+        println(score)
+
+    }
 
 
     fun sendMessage(view: View){
