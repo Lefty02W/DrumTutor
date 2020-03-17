@@ -1,6 +1,7 @@
 package com.example.drumTutor
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -30,11 +31,12 @@ class MainActivity : Activity() {
     /**
      *  Retrieves app's default shared preferences and persists a number
      */
-    fun persistDefaultSharedPreferences(){
-        val score = Math.random()
-        var defaultSharedPreferences =  this.getSharedPreferences(Context.MODE_PRIVATE)
+    private fun persistDefaultSharedPreferences() {
+        val score = Math.random() * 100
+        val defaultSharedPreferences =
+            this.getSharedPreferences("defaultSharedPreferences", Context.MODE_PRIVATE)
         with (defaultSharedPreferences.edit()) {
-            putInt("Score", score)
+            putInt("Score", score.toInt())
             commit()
         }
     }
@@ -42,10 +44,13 @@ class MainActivity : Activity() {
     /**
      * reads persisted defult shared preferences number
      */
-    fun readPersistedNumber(){
-        var defaultSharedPreferences =  this.getSharedPreferences(Context.MODE_PRIVATE)
-        val score = defaultSharedPreferences.getInt("Score")
+    private fun readPersistedNumber() {
+        val defaultSharedPreferences =
+            this.getSharedPreferences("defaultSharedPreferences", Context.MODE_PRIVATE)
+        val score = defaultSharedPreferences.getInt("Score", 0)
+        println("#########################################")
         println(score)
+        println("#########################################")
 
     }
 
@@ -54,7 +59,7 @@ class MainActivity : Activity() {
         val editText = findViewById<EditText>(R.id.editText)
         val message = editText.text.toString()
         val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-            putExtra(Companion.EXTRA_MESSAGE, message)
+            putExtra(EXTRA_MESSAGE, message)
         }
         startActivity(intent)
     }
