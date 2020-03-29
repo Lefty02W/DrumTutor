@@ -4,38 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#111422"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
+        android:id="@+id/title"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/edit_message"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="sendMessage"
-        android:text="@string/button_send"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
+        android:background="#1b1e2f"
+        android:gravity="center"
+        android:text="Drum Tutor"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#f6f6f6"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 
     <Button
         android:id="@+id/metronome_btn"
@@ -47,6 +37,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:text="Metronome"
+        android:background="#1b1e2f"
+        android:textColor="#f6f6f6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -61,6 +53,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:text="Rudiments"
+        android:background="#1b1e2f"
+        android:textColor="#f6f6f6"
         app:layout_constraintBottom_toTopOf="@+id/metronome_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -71,9 +65,11 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:src="@drawable/drum_loop_main"
         app:layout_constraintBottom_toTopOf="@+id/rudiment_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

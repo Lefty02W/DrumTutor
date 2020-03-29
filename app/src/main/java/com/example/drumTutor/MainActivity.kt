@@ -55,14 +55,14 @@ class MainActivity : Activity() {
     }
 
 
-    fun sendMessage(view: View){
-        val editText = findViewById<EditText>(R.id.editText)
-        val message = editText.text.toString()
-        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
-        }
-        startActivity(intent)
-    }
+//    fun sendMessage(view: View){
+//        val editText = findViewById<EditText>(R.id.editText)
+//        val message = editText.text.toString()
+//        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
+//            putExtra(EXTRA_MESSAGE, message)
+//        }
+//        startActivity(intent)
+//    }
 
     companion object {
         const val EXTRA_MESSAGE = "com.example.drumTutor.MESSAGE"

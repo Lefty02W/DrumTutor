@@ -60,7 +60,7 @@ class RudimentsHome : ListActivity() {
     override fun onListItemClick(l: ListView?, v: View?, friendId: Int, id: Long) {
         val options = arrayOf("Map", "Email", "Text", "Call", "Slack")
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Connect how?")
+        builder.setTitle("Explore Further?")
         builder.setItems(options) { _, optionId ->
             dispatchAction(optionId, friends[friendId])
         }
