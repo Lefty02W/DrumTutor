@@ -8,9 +8,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -18,6 +16,60 @@ import androidx.annotation.RequiresApi
 import java.net.URLEncoder
 
 class RudimentsHome : ListActivity() {
+
+    private val rudiments = arrayOf<Rudiment>(
+        Rudiment(
+            "Single Stroke",
+            arrayOf("R", "L", "R", "L", "R", "L", "R", "L"),
+            "https://vicfirth.zildjian.com/education/01-single-stroke-roll.html"
+        ),
+        Rudiment("Double Stroke", arrayOf("R", "R", "L", "L", "R", "R", "L", "L"), null),
+        Rudiment(
+            "Single Paradiddle",
+            arrayOf("R", "L", "R", "R", "L", "R", "L", "L"),
+            "https://vicfirth.zildjian.com/education/16-single-paradiddle.html"
+        ),
+        Rudiment(
+            "Double Paradiddle",
+            arrayOf("R", "L", "R", "L", "R", "R", "L", "R", "L", "R", "L", "L"),
+            "https://vicfirth.zildjian.com/education/17-double-paradiddle.html"
+        ),
+        Rudiment(
+            "Tripple Paradiddle",
+            arrayOf("R", "L", "R", "L", "R", "L", "R", "R", "L", "R", "L", "R", "L", "R", "L", "L"),
+            "https://vicfirth.zildjian.com/education/18-triple-paradiddle.html"
+        ),
+        Rudiment(
+            "Paradiddle-diddle",
+            arrayOf("R", "L", "R", "R", "L", "L", "L", "R", "L", "L", "R", "R"),
+            "https://vicfirth.zildjian.com/education/19-paradiddle-diddle.html"
+        ),
+        Rudiment(
+            "Flam",
+            arrayOf("LR", "RL"),
+            "https://vicfirth.zildjian.com/education/20-Flam.html"
+        ),
+        Rudiment(
+            "Flam Accent",
+            arrayOf("LR", "L", "R", "RL", "R", "L"),
+            "https://vicfirth.zildjian.com/education/21-flam-accent.html"
+        ),
+        Rudiment(
+            "Flam Tap",
+            arrayOf("LR", "R", "RL", "L", "LR", "R", "RL", "L"),
+            "https://vicfirth.zildjian.com/education/22-flam-tap.html"
+        ),
+        Rudiment(
+            "Flam Paradiddle",
+            arrayOf("LR", "L", "R", "R", "RL", "R", "L", "L"),
+            "https://vicfirth.zildjian.com/education/24-flam-paradiddle.html"
+        ),
+        Rudiment(
+            "Flamacue",
+            arrayOf("LR", "L", "R", "L", "LR", "RL", "R", "L", "R", "RL"),
+            "https://vicfirth.zildjian.com/education/23-flamacue.html"
+        )
+    )
 
     private val friends = arrayOf<Friend>(
         Friend(
@@ -40,7 +92,7 @@ class RudimentsHome : ListActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        listAdapter = ArrayAdapter<Friend>(this, R.layout.simple_list_item_1, friends)
+        listAdapter = ArrayAdapter<Rudiment>(this, R.layout.simple_list_item_1, rudiments)
         val permission = arrayOf(Manifest.permission.CALL_PHONE)
         if (!hasPermissions(permission)) {
             requestPermissions(permission, 1)
@@ -57,43 +109,62 @@ class RudimentsHome : ListActivity() {
 //        Log.d("FOO", "$friendId")
 //    }
 
-    override fun onListItemClick(l: ListView?, v: View?, friendId: Int, id: Long) {
-        val options = arrayOf("Map", "Email", "Text", "Call", "Slack")
+    override fun onListItemClick(l: ListView?, v: View?, rudimentId: Int, id: Long) {
+        val options = arrayOf("Train", "More Info")
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Explore Further?")
         builder.setItems(options) { _, optionId ->
-            dispatchAction(optionId, friends[friendId])
+            dispatchAction(optionId, rudiments[rudimentId])
         }
         builder.show()
     }
 
-    private fun dispatchAction(optionId: Int, friend: Friend) {
+
+    private fun dispatchAction(optionId: Int, rudiment: Rudiment) {
         when (optionId) {
             0 -> {
-                val uri = Uri.parse("geo:0,0?q=${URLEncoder.encode(friend.home, "UTF-8")}")
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                startActivity(intent)
+                val openRudimentTrainer = Intent(this, RudimentTrainer::class.java)
+                openRudimentTrainer.putExtra("name", rudiment.name)
+                openRudimentTrainer.putExtra("pattern", rudiment.pattern)
+                startActivity(openRudimentTrainer)
             }
             1 -> {
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.type = "text/plain"
-                intent.putExtra(Intent.EXTRA_EMAIL, friend.email)
-                startActivity(intent)
+                val webPage: Uri = Uri.parse(rudiment.link)
+                val intent = Intent(Intent.ACTION_VIEW, webPage)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                }
             }
-            2 -> {
-                val uri = Uri.parse("smsto:${friend.phone}")
-                val intent = Intent(Intent.ACTION_SENDTO, uri)
-                startActivity(intent)
-
-            }
-            3 -> {
-                val uri = Uri.parse("tel:${friend.phone}")
-                val intent = Intent(Intent.ACTION_DIAL, uri)
-                startActivity(intent)
-            }
-            4 -> TODO("Slack")
         }
     }
+
+//    private fun dispatchAction(optionId: Int, friend: Friend) {
+//        when (optionId) {
+//            0 -> {
+//                val uri = Uri.parse("geo:0,0?q=${URLEncoder.encode(friend.home, "UTF-8")}")
+//                val intent = Intent(Intent.ACTION_VIEW, uri)
+//                startActivity(intent)
+//            }
+//            1 -> {
+//                val intent = Intent(Intent.ACTION_SEND)
+//                intent.type = "text/plain"
+//                intent.putExtra(Intent.EXTRA_EMAIL, friend.email)
+//                startActivity(intent)
+//            }
+//            2 -> {
+//                val uri = Uri.parse("smsto:${friend.phone}")
+//                val intent = Intent(Intent.ACTION_SENDTO, uri)
+//                startActivity(intent)
+//
+//            }
+//            3 -> {
+//                val uri = Uri.parse("tel:${friend.phone}")
+//                val intent = Intent(Intent.ACTION_DIAL, uri)
+//                startActivity(intent)
+//            }
+//            4 -> TODO("Slack")
+//        }
+//    }
 
 
 }
