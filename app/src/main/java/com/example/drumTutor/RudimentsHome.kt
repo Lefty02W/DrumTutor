@@ -71,22 +71,22 @@ class RudimentsHome : ListActivity() {
         )
     )
 
-    private val friends = arrayOf<Friend>(
-        Friend(
-            "Single Paradiddle",
-            "bta47",
-            "Christchurch, NZ",
-            "benjamin.adams@canterbury.ac.nz",
-            "#######"
-        ),
-        Friend("Double Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-        Friend("Paradiddle-diddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-        Friend("Flam", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-        Friend("Flam Accent", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-        Friend("Flam Tap", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-        Friend("Flamacue", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-        Friend("Flam Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306")
-    )
+//    private val friends = arrayOf<Friend>(
+//        Friend(
+//            "Single Paradiddle",
+//            "bta47",
+//            "Christchurch, NZ",
+//            "benjamin.adams@canterbury.ac.nz",
+//            "#######"
+//        ),
+//        Friend("Double Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+//        Friend("Paradiddle-diddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+//        Friend("Flam", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+//        Friend("Flam Accent", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+//        Friend("Flam Tap", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+//        Friend("Flamacue", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
+//        Friend("Flam Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306")
+//    )
 
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -110,7 +110,7 @@ class RudimentsHome : ListActivity() {
 //    }
 
     override fun onListItemClick(l: ListView?, v: View?, rudimentId: Int, id: Long) {
-        val options = arrayOf("Train", "More Info")
+        val options = arrayOf("Play", "More Info")
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Explore Further?")
         builder.setItems(options) { _, optionId ->
@@ -118,7 +118,6 @@ class RudimentsHome : ListActivity() {
         }
         builder.show()
     }
-
 
     private fun dispatchAction(optionId: Int, rudiment: Rudiment) {
         when (optionId) {
@@ -138,33 +137,6 @@ class RudimentsHome : ListActivity() {
         }
     }
 
-//    private fun dispatchAction(optionId: Int, friend: Friend) {
-//        when (optionId) {
-//            0 -> {
-//                val uri = Uri.parse("geo:0,0?q=${URLEncoder.encode(friend.home, "UTF-8")}")
-//                val intent = Intent(Intent.ACTION_VIEW, uri)
-//                startActivity(intent)
-//            }
-//            1 -> {
-//                val intent = Intent(Intent.ACTION_SEND)
-//                intent.type = "text/plain"
-//                intent.putExtra(Intent.EXTRA_EMAIL, friend.email)
-//                startActivity(intent)
-//            }
-//            2 -> {
-//                val uri = Uri.parse("smsto:${friend.phone}")
-//                val intent = Intent(Intent.ACTION_SENDTO, uri)
-//                startActivity(intent)
-//
-//            }
-//            3 -> {
-//                val uri = Uri.parse("tel:${friend.phone}")
-//                val intent = Intent(Intent.ACTION_DIAL, uri)
-//                startActivity(intent)
-//            }
-//            4 -> TODO("Slack")
-//        }
-//    }
 
 
 }

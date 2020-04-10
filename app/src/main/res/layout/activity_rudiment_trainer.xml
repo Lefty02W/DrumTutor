@@ -57,15 +57,25 @@
         android:id="@+id/rudimentHeading"
         android:layout_width="411dp"
         android:layout_height="80dp"
-        android:text="Title"
         android:background="#1b1e2f"
+        android:gravity="center"
+        android:text="Title"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#f6f6f6"
-        android:textAllCaps="true"
         android:textStyle="bold"
-        android:textAlignment="center"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/acuracyDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rudimentHeading" />
 </androidx.constraintlayout.widget.ConstraintLayout>
