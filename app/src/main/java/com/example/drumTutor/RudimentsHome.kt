@@ -71,23 +71,6 @@ class RudimentsHome : ListActivity() {
         )
     )
 
-//    private val friends = arrayOf<Friend>(
-//        Friend(
-//            "Single Paradiddle",
-//            "bta47",
-//            "Christchurch, NZ",
-//            "benjamin.adams@canterbury.ac.nz",
-//            "#######"
-//        ),
-//        Friend("Double Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-//        Friend("Paradiddle-diddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-//        Friend("Flam", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-//        Friend("Flam Accent", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-//        Friend("Flam Tap", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-//        Friend("Flamacue", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306"),
-//        Friend("Flam Paradiddle", "lwa383", "Auckland, NZ", "lwa383@uclive.ac.nz", "02102392306")
-//    )
-
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,17 +80,12 @@ class RudimentsHome : ListActivity() {
         if (!hasPermissions(permission)) {
             requestPermissions(permission, 1)
         }
-//        setContentView(R.layout.activity_rudiments_home)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun hasPermissions(permission: Array<String>): Boolean {
         return permission.all { checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
     }
-
-//    override fun onListItemClick(l: ListView?, v: View?, friendId: Int, id: Long) {
-//        Log.d("FOO", "$friendId")
-//    }
 
     override fun onListItemClick(l: ListView?, v: View?, rudimentId: Int, id: Long) {
         val options = arrayOf("Play", "More Info")

@@ -2,4 +2,6 @@
     <string name="app_name">Drum Tutor</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
 </resources>

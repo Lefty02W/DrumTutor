@@ -21,11 +21,13 @@ class RudimentTrainer : Activity() {
         pattern = intent?.extras?.get("pattern") as Array<String>
         updateAccuracy()
         nextNote()
-        val textView = findViewById<TextView>(R.id.rudimentHeading).apply {
+        findViewById<TextView>(R.id.rudimentHeading).apply {
             text = intent.extras?.get("name").toString()
         }
+
         val leftStick: Button = findViewById(R.id.leftStickBtn)
         val rightStick: Button = findViewById(R.id.rightStickBtn)
+
         leftStick.setOnClickListener {
             playedNoteQueue += "L"
             println(playedNoteQueue)
@@ -33,6 +35,7 @@ class RudimentTrainer : Activity() {
                 checkResult()
             }
         }
+
         rightStick.setOnClickListener {
             playedNoteQueue += "R"
             if (playedNoteQueue.length >= expectedNote.length) {
@@ -73,8 +76,8 @@ class RudimentTrainer : Activity() {
 
     private fun setMainNote(note: String) {
         println(note)
-        val textView = findViewById<TextView>(R.id.noteDisplay).apply {
-            text = note.toString()
+        findViewById<TextView>(R.id.noteDisplay).apply {
+            text = note
         }
     }
 
@@ -83,14 +86,15 @@ class RudimentTrainer : Activity() {
         if (atempts > 0.0) {
             total = round((correct / atempts) * 10000.0) / 100
         }
-        val textView = findViewById<TextView>(R.id.acuracyDisplay).apply {
+        findViewById<TextView>(R.id.acuracyDisplay).apply {
+            //todo remove string literal
             text = "Accuracy: $total%"
         }
     }
 
     private fun setGhostNote(note: String) {
-        val textView = findViewById<TextView>(R.id.accentDisplay).apply {
-            text = note.toString()
+        findViewById<TextView>(R.id.accentDisplay).apply {
+            text = note
         }
     }
 
