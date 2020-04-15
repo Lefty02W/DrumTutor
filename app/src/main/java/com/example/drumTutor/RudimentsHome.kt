@@ -1,7 +1,7 @@
 package com.example.drumTutor
 
 import android.Manifest
-import android.R
+//import android.R
 import android.app.AlertDialog
 import android.app.ListActivity
 import android.content.Intent
@@ -12,10 +12,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Spinner
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.rudiment_item.*
+import java.lang.reflect.Array.set
 import java.net.URLEncoder
 
 class RudimentsHome : ListActivity() {
+
+    private lateinit var sourcesPicker: Spinner
+    //todo remove spinner
+    private lateinit var headlinesPicker: RecyclerView
 
     private val rudiments = arrayOf<Rudiment>(
         Rudiment(
@@ -72,15 +81,37 @@ class RudimentsHome : ListActivity() {
     )
 
 
-    @RequiresApi(Build.VERSION_CODES.M)
+//    @RequiresApi(Build.VERSION_CODES.M)
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        listAdapter = ArrayAdapter<Rudiment>(this, R.layout.simple_list_item_1, rudiments)
+//        val permission = arrayOf(Manifest.permission.CALL_PHONE)
+//        if (!hasPermissions(permission)) {
+//            requestPermissions(permission, 1)
+//        }
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        listAdapter = ArrayAdapter<Rudiment>(this, R.layout.simple_list_item_1, rudiments)
-        val permission = arrayOf(Manifest.permission.CALL_PHONE)
-        if (!hasPermissions(permission)) {
-            requestPermissions(permission, 1)
+        headlinesPicker = findViewById(R.id.rudimentPicker)
+        val layoutManager = LinearLayoutManager(this)
+        headlinesPicker.layoutManager = layoutManager
+        var rudiments: List<Rudiment> = listOf()
+        set(value) {
+            field = value
+            rudimentPicker.adapter = RudimentAdapter(this, field)
         }
+
     }
+
+    override fun onPostExecute(headlines: List<Rudiment>) {
+        super.onPostExecute(headlines)
+        context.get()?.rudiments = rudiments
+    }
+
+
+
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun hasPermissions(permission: Array<String>): Boolean {
