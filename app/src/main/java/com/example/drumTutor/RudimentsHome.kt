@@ -1,6 +1,7 @@
 package com.example.drumTutor
 
 import android.Manifest
+import android.app.Activity
 //import android.R
 import android.app.AlertDialog
 import android.app.ListActivity
@@ -20,11 +21,11 @@ import kotlinx.android.synthetic.main.rudiment_item.*
 import java.lang.reflect.Array.set
 import java.net.URLEncoder
 
-class RudimentsHome : ListActivity() {
+class RudimentsHome : Activity() {
 
     private lateinit var sourcesPicker: Spinner
     //todo remove spinner
-    private lateinit var headlinesPicker: RecyclerView
+    private lateinit var rudimentPicker: RecyclerView
 
     private val rudiments = arrayOf<Rudiment>(
         Rudiment(
@@ -93,21 +94,26 @@ class RudimentsHome : ListActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        headlinesPicker = findViewById(R.id.rudimentPicker)
+        rudimentPicker = findViewById(R.id.rudimentPicker)
         val layoutManager = LinearLayoutManager(this)
-        headlinesPicker.layoutManager = layoutManager
+        rudimentPicker.layoutManager = layoutManager
         var rudiments: List<Rudiment> = listOf()
+
+    }
+
+    var rudimentList: List<Rudiment> = listOf()
         set(value) {
             field = value
-            rudimentPicker.adapter = RudimentAdapter(this, field)
+            rudimentPicker.adapter = RudimentAdapter(this, field) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"))
+                startActivity(intent)
+            }
         }
 
-    }
-
-    override fun onPostExecute(headlines: List<Rudiment>) {
-        super.onPostExecute(headlines)
-        context.get()?.rudiments = rudiments
-    }
+//    override fun onPostExecute(headlines: List<Rudiment>) {
+//        super.onPostExecute(headlines)
+//        context.get()?.rudiments = rudiments
+//    }
 
 
 
