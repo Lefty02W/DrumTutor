@@ -71,20 +71,6 @@ class RudimentsHome : Activity() {
             "https://vicfirth.zildjian.com/education/23-flamacue.html"
         )
     )
-        set(value) {
-            field = value
-        }
-
-
-//    @RequiresApi(Build.VERSION_CODES.M)
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        listAdapter = ArrayAdapter<Rudiment>(this, R.layout.simple_list_item_1, rudiments)
-//        val permission = arrayOf(Manifest.permission.CALL_PHONE)
-//        if (!hasPermissions(permission)) {
-//            requestPermissions(permission, 1)
-//        }
-//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,35 +78,19 @@ class RudimentsHome : Activity() {
         rudimentPicker = findViewById(R.id.rudimentPicker)
         val layoutManager = LinearLayoutManager(this)
         rudimentPicker.layoutManager = layoutManager
-        rudimentPicker.adapter = RudimentAdapter(this, rudiments)
+        rudimentPicker.adapter = RudimentAdapter(this, rudiments) {
+            val openRudimentTrainer = Intent(this, RudimentTrainer::class.java)
+            openRudimentTrainer.putExtra("name", it.name)
+            openRudimentTrainer.putExtra("pattern", it.pattern)
+            startActivity(openRudimentTrainer)
+        }
 
-//        var rudiments: List<Rudiment> = listOf()
     }
-
-
-//    override fun onPostExecute() {
-//        super.onPostExecute(rudiments)
-//        context.get()?.rudiments = rudiments
-//    }
-
-
-
-
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun hasPermissions(permission: Array<String>): Boolean {
         return permission.all { checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
     }
-
-//    override fun onListItemClick(l: ListView?, v: View?, rudimentId: Int, id: Long) {
-//        val options = arrayOf("Play", "More Info")
-//        val builder = AlertDialog.Builder(this)
-//        builder.setTitle("Explore Further?")
-//        builder.setItems(options) { _, optionId ->
-//            dispatchAction(optionId, rudiments[rudimentId])
-//        }
-//        builder.show()
-//    }
 
     private fun dispatchAction(optionId: Int, rudiment: Rudiment) {
         when (optionId) {
