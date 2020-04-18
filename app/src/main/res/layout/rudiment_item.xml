@@ -6,11 +6,15 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/headlineText"
+        android:id="@+id/rudimentText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#4AD94D"
+        android:layout_height="70dp"
+        android:background="#1b1e2f"
+        android:gravity="center"
         android:text="Headline"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#f6f6f6"
         android:textSize="24sp" />
 
 </LinearLayout>

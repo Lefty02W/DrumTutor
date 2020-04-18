@@ -6,12 +6,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class RudimentsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val headlineText: TextView = view.findViewById(R.id.headlineText)
+    val rudimentText: TextView = view.findViewById(R.id.rudimentText)
 
-    var isActive: Boolean = false
-        set(value) {
-            field = value
-            itemView.setBackgroundColor(if (field) Color.LTGRAY else Color.TRANSPARENT)
-        }
+//    var isActive: Boolean = false
+//        set(value) {
+//            field = value
+//            itemView.setBackgroundColor(if (field) Color.LTGRAY else Color.TRANSPARENT)
+//        }
 
 }

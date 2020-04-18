@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RudimentAdapter(
     val context: Context,
-    val rudiments: List<Rudiment>,
-    val clickListener: (Rudiment) -> Unit
+    val rudiments: Array<Rudiment>
+//    val clickListener: (Rudiment) -> Unit
 ) : RecyclerView.Adapter<RudimentsViewHolder>() {
     override fun getItemCount(): Int = rudiments.size
 
@@ -19,12 +19,12 @@ class RudimentAdapter(
         val holder = RudimentsViewHolder(view)
         view.setOnClickListener {
 
-            clickListener(rudiments[holder.adapterPosition])
+            //            clickListener(rudiments[holder.adapterPosition])
         }
         return holder
     }
 
     override fun onBindViewHolder(holder: RudimentsViewHolder, i: Int) {
-        holder.headlineText.text = rudiments[i].name
+        holder.rudimentText.text = rudiments[i].name
     }
 }

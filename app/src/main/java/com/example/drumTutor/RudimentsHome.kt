@@ -1,25 +1,16 @@
 package com.example.drumTutor
 
-import android.Manifest
 import android.app.Activity
 //import android.R
-import android.app.AlertDialog
-import android.app.ListActivity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import android.widget.Spinner
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.rudiment_item.*
-import java.lang.reflect.Array.set
-import java.net.URLEncoder
 
 class RudimentsHome : Activity() {
 
@@ -27,7 +18,7 @@ class RudimentsHome : Activity() {
     //todo remove spinner
     private lateinit var rudimentPicker: RecyclerView
 
-    private val rudiments = arrayOf<Rudiment>(
+    private var rudiments = arrayOf<Rudiment>(
         Rudiment(
             "Single Stroke",
             arrayOf("R", "L", "R", "L", "R", "L", "R", "L"),
@@ -80,6 +71,9 @@ class RudimentsHome : Activity() {
             "https://vicfirth.zildjian.com/education/23-flamacue.html"
         )
     )
+        set(value) {
+            field = value
+        }
 
 
 //    @RequiresApi(Build.VERSION_CODES.M)
@@ -94,24 +88,18 @@ class RudimentsHome : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_rudiment_list)
         rudimentPicker = findViewById(R.id.rudimentPicker)
         val layoutManager = LinearLayoutManager(this)
         rudimentPicker.layoutManager = layoutManager
-        var rudiments: List<Rudiment> = listOf()
+        rudimentPicker.adapter = RudimentAdapter(this, rudiments)
 
+//        var rudiments: List<Rudiment> = listOf()
     }
 
-    var rudimentList: List<Rudiment> = listOf()
-        set(value) {
-            field = value
-            rudimentPicker.adapter = RudimentAdapter(this, field) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"))
-                startActivity(intent)
-            }
-        }
 
-//    override fun onPostExecute(headlines: List<Rudiment>) {
-//        super.onPostExecute(headlines)
+//    override fun onPostExecute() {
+//        super.onPostExecute(rudiments)
 //        context.get()?.rudiments = rudiments
 //    }
 
@@ -124,15 +112,15 @@ class RudimentsHome : Activity() {
         return permission.all { checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
     }
 
-    override fun onListItemClick(l: ListView?, v: View?, rudimentId: Int, id: Long) {
-        val options = arrayOf("Play", "More Info")
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Explore Further?")
-        builder.setItems(options) { _, optionId ->
-            dispatchAction(optionId, rudiments[rudimentId])
-        }
-        builder.show()
-    }
+//    override fun onListItemClick(l: ListView?, v: View?, rudimentId: Int, id: Long) {
+//        val options = arrayOf("Play", "More Info")
+//        val builder = AlertDialog.Builder(this)
+//        builder.setTitle("Explore Further?")
+//        builder.setItems(options) { _, optionId ->
+//            dispatchAction(optionId, rudiments[rudimentId])
+//        }
+//        builder.show()
+//    }
 
     private fun dispatchAction(optionId: Int, rudiment: Rudiment) {
         when (optionId) {
