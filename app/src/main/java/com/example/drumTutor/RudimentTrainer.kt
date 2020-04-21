@@ -1,7 +1,13 @@
 package com.example.drumTutor
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -15,11 +21,13 @@ class RudimentTrainer : Activity() {
     var playedNoteQueue = ""
     var expectedNote = ""
     var correct = 0.0
+    var link = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rudiment_trainer)
         pattern = intent?.extras?.get("pattern") as Array<String>
+        link = intent.extras!!.get("link") as String
         updateAccuracy()
         nextNote()
         findViewById<TextView>(R.id.rudimentHeading).apply {
@@ -101,4 +109,26 @@ class RudimentTrainer : Activity() {
         }
     }
 
+    /**
+     * Dialog letting user know they will be redirected
+     */
+    fun startDialog(view: View) {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        val dialog: AlertDialog = builder.setTitle("Learn More?")
+            .setMessage("You will be redirected to a trusted website")
+            .setPositiveButton("OK") { _, _ ->
+                val webPage: Uri = Uri.parse(link)
+                val intent = Intent(Intent.ACTION_VIEW, webPage)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                }
+            }
+            .setNegativeButton("Cancel") { _, _ ->
+
+            }
+            .create()
+        dialog.show()
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.rgb(250, 126, 88))
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.rgb(250, 126, 88))
+    }
 }

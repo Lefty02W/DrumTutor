@@ -22,7 +22,11 @@ class RudimentsHome : Activity() {
             arrayOf("R", "L", "R", "L", "R", "L", "R", "L"),
             "https://vicfirth.zildjian.com/education/01-single-stroke-roll.html"
         ),
-        Rudiment("Double Stroke", arrayOf("R", "R", "L", "L", "R", "R", "L", "L"), null),
+        Rudiment(
+            "Double Stroke",
+            arrayOf("R", "R", "L", "L", "R", "R", "L", "L"),
+            "https://www.40drumrudiments.com/double-stroke-roll/"
+        ),
         Rudiment(
             "Single Paradiddle",
             arrayOf("R", "L", "R", "R", "L", "R", "L", "L"),
@@ -80,33 +84,9 @@ class RudimentsHome : Activity() {
             val openRudimentTrainer = Intent(this, RudimentTrainer::class.java)
             openRudimentTrainer.putExtra("name", it.name)
             openRudimentTrainer.putExtra("pattern", it.pattern)
+            openRudimentTrainer.putExtra("link", it.link)
             startActivity(openRudimentTrainer)
         }
     }
-
-    @RequiresApi(Build.VERSION_CODES.M)
-    fun hasPermissions(permission: Array<String>): Boolean {
-        return permission.all { checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
-    }
-
-    private fun dispatchAction(optionId: Int, rudiment: Rudiment) {
-        when (optionId) {
-            0 -> {
-                val openRudimentTrainer = Intent(this, RudimentTrainer::class.java)
-                openRudimentTrainer.putExtra("name", rudiment.name)
-                openRudimentTrainer.putExtra("pattern", rudiment.pattern)
-                startActivity(openRudimentTrainer)
-            }
-            1 -> {
-                val webPage: Uri = Uri.parse(rudiment.link)
-                val intent = Intent(Intent.ACTION_VIEW, webPage)
-                if (intent.resolveActivity(packageManager) != null) {
-                    startActivity(intent)
-                }
-            }
-        }
-    }
-
-
 
 }
