@@ -4,4 +4,11 @@
     <string name="button_send">Send</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
+    <string name="drum_tutor">Drum Tutor</string>
+    <string name="metronome">Metronome</string>
+    <string name="rudiments">Rudiments</string>
+    <string name="snare_drum_image">Snare Drum Image</string>
+    <string name="increment">+</string>
+    <string name="start">Start</string>
+    <string name="decrement">-</string>
 </resources>

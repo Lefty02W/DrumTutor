@@ -11,17 +11,17 @@
 
     <TextView
         android:id="@+id/mainHeading"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginBottom="16dp"
         android:background="#1b1e2f"
         android:gravity="center"
-        android:text="Drum Tutor"
+        android:text="@string/drum_tutor"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#f6f6f6"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Metronome"
+        android:text="@string/metronome"
         android:background="#1b1e2f"
         android:textColor="#f6f6f6"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Rudiments"
+        android:text="@string/rudiments"
         android:background="#1b1e2f"
         android:textColor="#f6f6f6"
         app:layout_constraintBottom_toTopOf="@+id/metronome_btn"
@@ -70,7 +70,8 @@
         app:layout_constraintBottom_toTopOf="@+id/rudiment_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainHeading" />
+        app:layout_constraintTop_toBottomOf="@+id/mainHeading"
+        android:contentDescription="@string/snare_drum_image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

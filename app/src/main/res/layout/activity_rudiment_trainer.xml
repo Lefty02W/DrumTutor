@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:textColor="#f6f6f6"
         android:text=""
-        android:textSize="140dp"
+        android:textSize="140sp"
         app:layout_constraintBottom_toTopOf="@+id/rightStickBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:layout_marginRight="16dp"
         android:textColor="#f6f6f6"
         android:text=""
-        android:textSize="45dp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="@+id/noteDisplay"
         app:layout_constraintEnd_toStartOf="@+id/noteDisplay"
         app:layout_constraintTop_toTopOf="@+id/noteDisplay"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/acuracyDisplay"
+        android:id="@+id/accuracyDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

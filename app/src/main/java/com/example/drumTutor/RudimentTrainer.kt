@@ -86,7 +86,7 @@ class RudimentTrainer : Activity() {
         if (atempts > 0.0) {
             total = round((correct / atempts) * 10000.0) / 100
         }
-        findViewById<TextView>(R.id.acuracyDisplay).apply {
+        findViewById<TextView>(R.id.accuracyDisplay).apply {
             //todo remove string literal
             text = "Accuracy: $total%"
         }
