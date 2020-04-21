@@ -2,11 +2,15 @@ package com.example.drumTutor
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -56,6 +60,16 @@ class RudimentTrainer : Activity() {
     private fun checkResult() {
         if (expectedNote == playedNoteQueue) {
             correct += 1
+        } else {
+            val vibrator: Vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(
+                    VibrationEffect.createOneShot(
+                        200,
+                        VibrationEffect.DEFAULT_AMPLITUDE
+                    )
+                )
+            }
         }
         atempts += 1
         playedNoteQueue = ""
