@@ -3,6 +3,7 @@ package com.example.drumTutor
 import android.app.Activity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import kotlin.math.round
 
@@ -86,6 +87,10 @@ class RudimentTrainer : Activity() {
         if (atempts > 0.0) {
             total = round((correct / atempts) * 10000.0) / 100
         }
+        findViewById<ProgressBar>(R.id.accuracyBar).apply {
+            progress = total.toInt()
+        }
+
         findViewById<TextView>(R.id.accuracyDisplay).apply {
             //todo remove string literal
             text = "Accuracy: $total%"
