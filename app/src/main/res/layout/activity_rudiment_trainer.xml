@@ -89,6 +89,7 @@
 
     <ProgressBar
         android:id="@+id/accuracyBar"
+        android:progressTint="#fa7e58"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
