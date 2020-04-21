@@ -9,23 +9,25 @@
 
     <com.sdsmdg.harjot.crollerTest.Croller
         android:id="@+id/croller"
-        android:layout_width="413dp"
-        android:layout_height="390dp"
+        android:layout_width="413sp"
+        android:layout_height="390sp"
         android:layout_centerInParent="true"
         android:onClick="onProgressChanged"
         app:back_circle_color="#1b1e2f"
         app:indicator_color="#1b1e2f"
         app:indicator_width="10"
         app:is_continuous="true"
+        app:label=""
         app:label_color="#82848d"
         app:layout_constraintBottom_toTopOf="@+id/toggl_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.502"
         app:main_circle_color="#fa7e58"
-        app:min="40"
         app:max="200"
-        app:label=""
+        app:min="40"
         app:progress_primary_color="#fa7e58"
         app:progress_secondary_color="#1b1e2f"
         app:start_offset="45" />
@@ -73,19 +75,19 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="80dp"
-        android:text="@string/metronome"
         android:background="#1b1e2f"
+        android:gravity="center"
+        android:text="@string/metronome"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#f6f6f6"
-        android:textAllCaps="true"
         android:textStyle="bold"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
