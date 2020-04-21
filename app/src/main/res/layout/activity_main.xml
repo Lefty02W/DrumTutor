@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/rudimentHeading"
+        android:id="@+id/mainHeading"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginBottom="16dp"
@@ -60,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logoImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rudiment_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rudimentHeading" />
+        app:layout_constraintTop_toBottomOf="@+id/mainHeading" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
