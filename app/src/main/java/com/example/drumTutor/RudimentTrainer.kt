@@ -31,7 +31,6 @@ class RudimentTrainer : Activity() {
 
         leftStick.setOnClickListener {
             playedNoteQueue += "L"
-            println(playedNoteQueue)
             if (playedNoteQueue.length >= expectedNote.length) {
                 checkResult()
             }
@@ -76,7 +75,6 @@ class RudimentTrainer : Activity() {
     }
 
     private fun setMainNote(note: String) {
-        println(note)
         findViewById<TextView>(R.id.noteDisplay).apply {
             text = note
         }

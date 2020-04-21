@@ -14,11 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RudimentsHome : Activity() {
 
-    private lateinit var sourcesPicker: Spinner
-    //todo remove spinner
     private lateinit var rudimentPicker: RecyclerView
 
-    private var rudiments = arrayOf<Rudiment>(
+    private var rudiments = arrayOf(
         Rudiment(
             "Single Stroke",
             arrayOf("R", "L", "R", "L", "R", "L", "R", "L"),
@@ -84,7 +82,6 @@ class RudimentsHome : Activity() {
             openRudimentTrainer.putExtra("pattern", it.pattern)
             startActivity(openRudimentTrainer)
         }
-
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

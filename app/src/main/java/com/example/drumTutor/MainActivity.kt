@@ -31,8 +31,6 @@ class MainActivity : Activity() {
             val openRudimentsHome = Intent(this, RudimentsHome::class.java)
             startActivity(openRudimentsHome)
         }
-        persistDefaultSharedPreferences()
-        readPersistedNumber()
     }
 
     override fun onResume() {
@@ -59,43 +57,5 @@ class MainActivity : Activity() {
         metronomeBtn.startAnimation(ttb2)
     }
 
-    /**
-     *  Retrieves app's default shared preferences and persists a number
-     */
-    private fun persistDefaultSharedPreferences() {
-        val score = Math.random() * 100
-        val defaultSharedPreferences =
-            this.getSharedPreferences("defaultSharedPreferences", Context.MODE_PRIVATE)
-        with (defaultSharedPreferences.edit()) {
-            putInt("Score", score.toInt())
-            commit()
-        }
-    }
 
-    /**
-     * reads persisted defult shared preferences number
-     */
-    private fun readPersistedNumber() {
-        val defaultSharedPreferences =
-            this.getSharedPreferences("defaultSharedPreferences", Context.MODE_PRIVATE)
-        val score = defaultSharedPreferences.getInt("Score", 0)
-        println("#########################################")
-        println(score)
-        println("#########################################")
-
-    }
-
-
-//    fun sendMessage(view: View){
-//        val editText = findViewById<EditText>(R.id.editText)
-//        val message = editText.text.toString()
-//        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-//            putExtra(EXTRA_MESSAGE, message)
-//        }
-//        startActivity(intent)
-//    }
-
-    companion object {
-        const val EXTRA_MESSAGE = "com.example.drumTutor.MESSAGE"
-    }
 }

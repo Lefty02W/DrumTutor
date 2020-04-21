@@ -6,15 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class RudimentAdapter(
-    val context: Context,
-    val rudiments: Array<Rudiment>,
+    private val context: Context,
+    private val rudiments: Array<Rudiment>,
     val clickListener: (Rudiment) -> Unit
 ) : RecyclerView.Adapter<RudimentsViewHolder>() {
     override fun getItemCount(): Int = rudiments.size
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): RudimentsViewHolder {
         val inflater = LayoutInflater.from(context)
-        //todo check using right layout
         val view = inflater.inflate(R.layout.rudiment_item, parent, false)
         val holder = RudimentsViewHolder(view)
         view.setOnClickListener {
