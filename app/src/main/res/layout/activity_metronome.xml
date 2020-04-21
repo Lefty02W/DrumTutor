@@ -44,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/toggl_btn"
         android:onClick="toggleMetronome"
         android:layout_width="wrap_content"
@@ -52,7 +52,6 @@
         android:layout_marginBottom="16dp"
         android:background="#1b1e2f"
         android:textColor="#f6f6f6"
-        android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/increment_btn"
         app:layout_constraintHorizontal_bias="0.542"
