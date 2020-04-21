@@ -9,9 +9,11 @@
 
     <com.sdsmdg.harjot.crollerTest.Croller
         android:id="@+id/croller"
-        android:layout_width="413sp"
-        android:layout_height="390sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:onClick="onProgressChanged"
         app:back_circle_color="#1b1e2f"
         app:indicator_color="#1b1e2f"
@@ -34,25 +36,25 @@
 
     <Button
         android:id="@+id/increment_btn"
-        android:onClick="increment"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="#1b1e2f"
-        android:textColor="#f6f6f6"
+        android:onClick="increment"
         android:text="@string/increment"
+        android:textColor="#f6f6f6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ToggleButton
         android:id="@+id/toggl_btn"
-        android:onClick="toggleMetronome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="#1b1e2f"
+        android:onClick="toggleMetronome"
         android:textColor="#f6f6f6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/increment_btn"
