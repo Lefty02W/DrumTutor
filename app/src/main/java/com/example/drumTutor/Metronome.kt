@@ -1,5 +1,6 @@
 package com.example.drumTutor
 
+import android.app.Activity
 import android.media.AudioManager
 import android.media.ToneGenerator
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_metronome.*
 import java.util.*
 import kotlin.concurrent.timerTask
 
-class Metronome : AppCompatActivity() {
+class Metronome : Activity() {
     private var metronomeOn = false
     private var metronome = Timer("metronome", true)
     //  Initial BPM
@@ -75,6 +76,16 @@ class Metronome : AppCompatActivity() {
     fun increment(view: View) {
         croller.progress = croller.progress + 1
         onProgressChanged(view)
+    }
+
+    override fun onPause() {
+        this.metronome.cancel()
+        super.onPause()
+    }
+
+    override fun onStop() {
+        this.metronome.cancel()
+        super.onStop()
     }
 
 

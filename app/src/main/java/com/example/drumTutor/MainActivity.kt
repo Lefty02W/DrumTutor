@@ -36,8 +36,13 @@ class MainActivity : Activity() {
     }
 
     override fun onResume() {
-        super.onResume()
         runAnimation()
+        super.onResume()
+    }
+
+    override fun onStart() {
+        runAnimation()
+        super.onStart()
     }
 
     private fun runAnimation() {
