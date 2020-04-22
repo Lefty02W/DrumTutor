@@ -22,4 +22,5 @@
     <string name="flam_tap">Flam Tap</string>
     <string name="flam_paradiddle">Flam Paradiddle</string>
     <string name="flamacue">Flamacue</string>
+    <string name="accuracy">Accuracy:</string>
 </resources>

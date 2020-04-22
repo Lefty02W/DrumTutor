@@ -22,5 +22,7 @@
     <string name="flam_tap">Grifo Mentira</string>
     <string name="flam_paradiddle">Mentira Paradiddle</string>
     <string name="flamacue">Flamacue</string>
+    <string name="accuracy">Exactitud:</string>
+
 
 </resources>

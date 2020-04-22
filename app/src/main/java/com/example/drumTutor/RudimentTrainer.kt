@@ -137,7 +137,8 @@ class RudimentTrainer : Activity() {
     private fun setAccuracyLabel(total: Double) {
         findViewById<TextView>(R.id.accuracyDisplay).apply {
             //todo remove string literal
-            text = "Accuracy: $total%"
+            val accuracyString: String = getString(R.string.accuracy) + " " + total.toString() + "%"
+            text = accuracyString
         }
     }
 
