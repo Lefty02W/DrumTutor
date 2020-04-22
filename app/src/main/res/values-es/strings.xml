@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Tambor Tutor</string>
+    <string name="edit_message">Ingrese un mensaje</string>
+    <string name="button_send">Enviar</string>
+    <string name="left">Izquierdo</string>
+    <string name="right">Derecho</string>
+    <string name="drum_tutor">Tambor Tutor</string>
+    <string name="metronome">Metrónomo</string>
+    <string name="rudiments">Rudimentos</string>
+    <string name="snare_drum_image">Imagen de tambor</string>
+    <string name="increment">+</string>
+    <string name="start">Comienzo</string>
+    <string name="decrement">-</string>
+    <string name="single_stroke">Un solo golpe</string>
+    <string name="double_stroke">Doble trazo</string>
+    <string name="single_paradiddle">Paradiddle único</string>
+    <string name="double_paradiddle">Doble paradiddle</string>
+    <string name="triple_paradiddle">Tres paradiddle</string>
+    <string name="paradiddle_diddle">Paradiddle-diddle</string>
+    <string name="flam">Mentira</string>
+    <string name="flam_accent">Acento Mentira</string>
+    <string name="flam_tap">Grifo Mentira</string>
+    <string name="flam_paradiddle">Mentira Paradiddle</string>
+    <string name="flamacue">Flamacue</string>
+
+</resources>

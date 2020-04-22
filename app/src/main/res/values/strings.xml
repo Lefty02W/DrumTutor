@@ -11,4 +11,15 @@
     <string name="increment">+</string>
     <string name="start">Start</string>
     <string name="decrement">-</string>
+    <string name="single_stroke">Single Stroke</string>
+    <string name="double_stroke">Double Stroke</string>
+    <string name="single_paradiddle">Single Paradiddle</string>
+    <string name="double_paradiddle">Double Paradiddle</string>
+    <string name="triple_paradiddle">Triple Paradiddle</string>
+    <string name="paradiddle_diddle">Paradiddle-diddle</string>
+    <string name="flam">Flam</string>
+    <string name="flam_accent">Flam Accent</string>
+    <string name="flam_tap">Flam Tap</string>
+    <string name="flam_paradiddle">Flam Paradiddle</string>
+    <string name="flamacue">Flamacue</string>
 </resources>
