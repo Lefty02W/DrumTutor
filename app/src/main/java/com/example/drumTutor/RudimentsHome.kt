@@ -1,7 +1,6 @@
 package com.example.drumTutor
 
 import android.app.Activity
-//import android.R
 import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
