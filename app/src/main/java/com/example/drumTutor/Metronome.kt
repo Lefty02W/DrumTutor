@@ -33,7 +33,6 @@ class Metronome : Activity() {
 
     fun toggleMetronome(view: View) {
         this.metronomeOn = !metronomeOn
-        var count = 0
         if (this.metronomeOn) {
             startMetronome()
         } else {

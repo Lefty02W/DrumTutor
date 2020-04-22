@@ -14,6 +14,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.Default
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.round
 
 class RudimentTrainer : Activity() {
@@ -31,7 +36,9 @@ class RudimentTrainer : Activity() {
         setContentView(R.layout.activity_rudiment_trainer)
         pattern = intent?.extras?.get("pattern") as Array<String>
         link = intent.extras!!.get("link") as String
-        updateAccuracy()
+        CoroutineScope(Default).launch {
+            updateAccuracy()
+        }
         nextNote()
         findViewById<TextView>(R.id.rudimentHeading).apply {
             text = intent.extras?.get("name").toString()
@@ -72,7 +79,9 @@ class RudimentTrainer : Activity() {
         }
         atempts += 1
         playedNoteQueue = ""
-        updateAccuracy()
+        CoroutineScope(Default).launch {
+            updateAccuracy()
+        }
         nextNote()
     }
 
@@ -101,15 +110,31 @@ class RudimentTrainer : Activity() {
         }
     }
 
-    private fun updateAccuracy() {
+    private suspend fun updateAccuracy() {
+        val total = calculateAccuracyResult()
+        withContext(Main) {
+            setStatusBar(total)
+        }
+        withContext(Main) {
+            setAccuracyLabel(total)
+        }
+    }
+
+    private suspend fun calculateAccuracyResult(): Double {
         var total = 0.0
         if (atempts > 0.0) {
             total = round((correct / atempts) * 10000.0) / 100
         }
+        return total
+    }
+
+    private fun setStatusBar(total: Double) {
         findViewById<ProgressBar>(R.id.accuracyBar).apply {
             progress = total.toInt()
         }
+    }
 
+    private fun setAccuracyLabel(total: Double) {
         findViewById<TextView>(R.id.accuracyDisplay).apply {
             //todo remove string literal
             text = "Accuracy: $total%"
