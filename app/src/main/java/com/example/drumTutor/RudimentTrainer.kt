@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -124,8 +125,8 @@ class RudimentTrainer : Activity() {
     /**
      * Dialog letting user know they will be redirected
      */
-    fun startDialog() {
-        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+    fun View.startDialog() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this@RudimentTrainer)
         val dialog: AlertDialog = builder.setTitle("Learn More?")
             .setMessage("You will be redirected to a trusted website")
             .setPositiveButton("OK") { _, _ ->
